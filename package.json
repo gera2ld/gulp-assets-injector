@@ -1,6 +1,6 @@
 {
   "name": "gulp-assets-injector",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A gulp plugin to inject assets into HTMLs",
   "main": "index.js",
   "scripts": {
