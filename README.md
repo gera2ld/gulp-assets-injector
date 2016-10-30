@@ -62,12 +62,14 @@ Document
 
   `options` is an object with following properties:
 
-  * link: *Boolean*
+  * link: *Any*
 
     Whether the assets should be injected as a link. If set to false, the content will be injected into HTML directly. Default as `true`.
 
+    If set to a function, the injected link URL will be determined by the function, the parameters are `path/to/HTML` and `path/to/asset`.
+
   * filter: *Function*
 
-    A function to decide whether an asset file should be injected into the current HTML. The parameters are the path of current HTML and the path of asset file.
+    A function to decide whether an asset file should be injected into the current HTML. The parameters are `path/to/HTML` and `path/to/asset`.
 
     If not provided, all assets within the same directory as the current HTML will be injected.
