@@ -35,15 +35,32 @@ gulp.task('html', ['js', 'css'], () => {
 });
 
 // and a more complexed example
+const injectOptions = {
+  link: true,
+  filter: (htmlPath, assetPath) => assetPath.includes('/home/'),
+}
 gulp.task('html-complex', ['js', 'css'], () => {
   return gulp.src('src/home.html')
-  .pipe(assetsInjector.inject({
-    link: true,
-    filter: (htmlPath, assetPath) => assetPath.includes('/home/'),
-  }))
+  .pipe(assetsInjector.inject(injectOptions))
   .pipe(gulp.dest('dist'));
 });
 ```
+
+If `injectOptions.link` is set to false, HTMLs will be injected with asset contents directly:
+``` html
+<style>/* css here */</style>
+...
+<script>/* script here */</style>
+```
+
+Otherwise HTMLs will be injected with links:
+``` html
+<link rel="stylesheet" href="style.css">
+...
+<script src="app.js"></script>
+```
+
+If `injectOptions.link` is a function, the returned value will be used as asset paths.
 
 Document
 ---
