@@ -50,7 +50,7 @@ module.exports = function () {
         let content = String(file.contents);
         items.forEach(item => {
           var inject = injectors[path.extname(item.path).toLowerCase()];
-          if (inject) content = inject({
+          if (inject && item.content.trim()) content = inject({
             content,
             path: file.path,
           }, item, options);
