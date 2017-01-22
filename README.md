@@ -50,7 +50,7 @@ If `injectOptions.link` is set to false, HTMLs will be injected with asset conte
 ``` html
 <style>/* css here */</style>
 ...
-<script>/* script here */</style>
+<script>/* script here */</script>
 ```
 
 Otherwise HTMLs will be injected with links:
