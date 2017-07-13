@@ -10,8 +10,16 @@ function injectCSS(html, file, options) {
 function injectJS(html, file, options) {
   const injected = options.link
     ? `<script src="${options.link(html.path, file.path)}"></script>`
-    : `<script>${file.content}</script>`;
+    : `<script>${normalizeJS(file.content)}</script>`;
   return html.content.replace('</body>', m => `${injected}\n${m}`);
+}
+
+function normalizeJS(content) {
+  // Assume `</script` only appears in strings.
+  const safeContent = content.replace(/<\/script\b/g, '<\\/script');
+  return `//<![CDATA[
+${safeContent}
+//]]>`;
 }
 
 function getLink(htmlPath, assetPath) {

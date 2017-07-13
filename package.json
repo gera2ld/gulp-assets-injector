@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/gera2ld/gulp-assets-injector#readme",
   "peerDependencies": {
-    "gulp": "3",
-    "through2": "*"
+    "gulp": "3"
+  },
+  "dependencies": {
+    "through2": "2"
   }
 }
